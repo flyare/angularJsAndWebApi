@@ -12,6 +12,7 @@
         $scope.showAdd = function () {
             $scope.flag = true;
             $scope.flagAdd = true;
+            $scope.product = {};
         }
 
         $scope.addProduct = function () {

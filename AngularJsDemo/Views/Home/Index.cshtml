@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts
+{
+    <script src="~/app/libs/angular.js"></script>
+    <script src="~/app/controller/productModule.js"></script>
+    <script src="~/app/controller/productService.js"></script>
+    <script src="~/app/controller/productController.js"></script>
+    <script src="~/app/app.js"></script>    
+}
+<h2>CRUD App</h2>
+<div ng-app="myApp">    
+    <div ng-controller="productController">        
+        <button class="btn btn-primary" ng-click="showAdd()">Add</button>
+        <list-product-view></list-product-view> 
+        <div ng-show="flag > 0">
+            <add-product-view></add-product-view>
+        </div>     
+    </div>    
+</div>
+

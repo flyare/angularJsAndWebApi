@@ -16,13 +16,13 @@
         }
 
         $scope.addProduct = function () {
-            apiService.addProduct("api/product/add", $scope.product, function (result) {
+            apiService.addProduct("/api/product/add", $scope.product, function (result) {
                 $scope.products.push(result.data);
             });
         }
 
         $scope.getAll = function () {
-            apiService.getAll("api/product/getall", function (result) {
+            apiService.getAll("/api/product/getall", function (result) {
                 $scope.products = result.data;
             });
         };
@@ -30,7 +30,7 @@
         $scope.getById = function (params) {
             $scope.flag = true;
             $scope.flagAdd = false;
-            apiService.getById("api/product/getbyid", params, function (result) {
+            apiService.getById("/api/product/getbyid", params, function (result) {
                 $scope.product = result.data;
             });
         }
@@ -40,7 +40,7 @@
                 $scope.addProduct();
             }
             else {
-                apiService.updateProduct("api/product/update", $scope.product, function (result) {
+                apiService.updateProduct("/api/product/update", $scope.product, function (result) {
                     //Try to update Products in $scope.products
                     $scope.products.forEach(function (e, index) {
                         if (e.Id === result.data.Id) {
@@ -60,7 +60,7 @@
 
         $scope.deleteProduct = function (id) {
             if (confirm("Aru your sure?")) {
-                apiService.deleteProduct("api/product/delete", id, function (result) {
+                apiService.deleteProduct("/api/product/delete", id, function (result) {
                     $scope.products.forEach(function (e, index) {
                         if (e.Id === result.data.Id) {
                             $scope.products.splice(index, 1);
@@ -70,8 +70,6 @@
             }
             return false;
         }
-
-        $scope.getAll();
     };
 
     app.directive("listProductView", listProductView);

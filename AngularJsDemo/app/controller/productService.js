@@ -12,9 +12,9 @@
         }
 
         function addProduct(url, params, success, failure) {
-            $http.post(url, params).then(function (result) {
+            $http.post(url, params).then(function(result) {
                 success(result);
-            })
+            });
         }
 
         function deleteProduct(url, params, success, failure) {
@@ -34,7 +34,7 @@
             $http.get(url).then(function (result) {
                 success(result);
             }, function (error) {
-                failure(error)
+                failure(error);
             });
         }
 

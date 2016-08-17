@@ -2,10 +2,9 @@
     ViewBag.Title = "Index";
 }
 
-
 <h2>CRUD App</h2>
 <div ng-app="myApp">
-    <div ng-controller="productController">
+    <div ng-controller="productController" ng-init="getAll()">
         <button class="btn btn-primary" ng-click="showAdd()">Add</button>
         <list-product-view></list-product-view>
         <div ng-show="flag > 0">
@@ -24,3 +23,4 @@
     <script src="~/app/app.js"></script>
 }
 
+ 
